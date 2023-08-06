@@ -16,6 +16,7 @@ class CustomUser(models.Model):
 class Plane(models.Model):
     model = models.CharField(max_length=100, db_index=True)
     description = models.CharField(max_length=1024)
+    objects = models.Manager()
 
     def __str__(self):
         return self.model

@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from user_profile.views import UsersAPIList
+from user_profile.views import UsersAPIList, UserCreate, UserUpdate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/users_list/', UsersAPIList.as_view()),
+    path('api/v1/create_user/', UserCreate.as_view()),
+    path('api/v1/create_user/<int:pk>/', UserUpdate.as_view()),
 ]
