@@ -30,9 +30,13 @@ class ProfileUserSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        # e = User.objects.select_related("customuser").get(id=validated_data.pop("user"))
-        # print(e)
-        # validated_data["user"] = e
         user = CustomUser.objects.create(**validated_data)
         return user
+
+
+class UserAirplaneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = "__all__"
+
 
